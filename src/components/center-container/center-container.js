@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useArticles from '../../hooks/use-articles';
 import Article from '../article/article';
 import './center-container.scss';
@@ -6,10 +6,15 @@ import { useLocalStorage } from 'usehooks-ts';
 import { getKeyByValue } from '../../utils/get-key';
 import { countryIso } from '../filter-articles-container/country-filter';
 
-const CenterContainer = () => {
+const CenterContainer = ({ getTotalArticlesNum, currPage }) => {
 	const [country] = useLocalStorage('country', 'pl');
 	const [pageSize] = useLocalStorage('pageSize', 10);
-	const { articles } = useArticles(1);
+	const { articles } = useArticles(currPage);
+
+	const totalArticles = articles?.totalResults;
+	useEffect(() => {
+		getTotalArticlesNum(totalArticles);
+	}, [totalArticles]);
 
 	const articlesArr = articles?.articles;
 
