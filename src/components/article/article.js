@@ -14,6 +14,7 @@ const Article = ({ title, description, date, imageUrl, articleUrl }) => {
 	const adaptedDate = `${dd}.${mm}.${yyyy}`;
 
 	const onImageError = (e) => {
+		console.log('ingo from error image');
 		e.currentTarget.src = noImagePath;
 	};
 
