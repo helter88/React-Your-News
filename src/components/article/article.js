@@ -14,8 +14,7 @@ const Article = ({ title, description, date, imageUrl, articleUrl }) => {
 	const adaptedDate = `${dd}.${mm}.${yyyy}`;
 
 	const onImageError = (e) => {
-		console.log('ingo from error image');
-		e.currentTarget.src = noImagePath;
+		e.Target.src = noImagePath;
 	};
 
 	const onHandleClick = () => {
@@ -25,7 +24,11 @@ const Article = ({ title, description, date, imageUrl, articleUrl }) => {
 	return (
 		<article className="articleContainer" onClick={onHandleClick}>
 			<h3>{title}</h3>
-			<img src={imageUrl} alt="Tytuł" onError={onImageError} />
+			<img
+				src={imageUrl ? imageUrl : noImagePath}
+				alt="Tytuł"
+				onError={onImageError}
+			/>
 			<p className="date">{adaptedDate}</p>
 			<p className="shortcut">{appropriateDescription}</p>
 		</article>
