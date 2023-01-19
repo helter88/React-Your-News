@@ -1,14 +1,21 @@
 import React from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import CenterContainer from './components/center-container/center-container';
+import FilterArticlesContainer from './components/filter-articles-container';
 import Header from './components/header/header';
-import ArticlesContainer from './components/articless-container/articles-container';
 import Paginator from './components/paginator/paginator';
+
 const App = () => {
+	const client = new QueryClient();
 	return (
-		<div>
-			<Header />
-			<ArticlesContainer />
-			<Paginator />
-		</div>
+		<QueryClientProvider client={client}>
+			<div>
+				<Header />
+				<FilterArticlesContainer />
+				<CenterContainer />
+				<Paginator />
+			</div>
+		</QueryClientProvider>
 	);
 };
 
