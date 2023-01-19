@@ -3,7 +3,7 @@ import './styles/index.scss';
 import { useLocalStorage } from 'usehooks-ts';
 import { getKeyByValue } from '../../utils/get-key';
 
-const countryIso = {
+export const countryIso = {
 	Polska: 'pl',
 	Czechy: 'cz',
 	Niemcy: 'de',

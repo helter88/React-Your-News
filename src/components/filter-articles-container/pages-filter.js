@@ -13,7 +13,7 @@ const PagesFilter = () => {
 
 	return (
 		<div className="pages-filter">
-			<p> zmień ilość wiadomości na stronie:</p>
+			<p> Zmień ilość wiadomości na stronie:</p>
 			<input
 				type="number"
 				min="0"
