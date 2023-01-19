@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './styles/index.scss';
 import { useLocalStorage } from 'usehooks-ts';
 
 const PagesFilter = () => {
-	const [page, setPage] = useLocalStorage('page', 10);
-	const [pageN, setPageN] = useState(page);
+	const [pageSize, setPageSize] = useLocalStorage('pageSize', 10);
+	const [pageN, setPageN] = useState(pageSize);
 
 	const onChangeHandler = (e) => {
-		setPage(e.target.value);
+		setPageSize(e.target.value);
 		setPageN(e.target.value);
 	};
 

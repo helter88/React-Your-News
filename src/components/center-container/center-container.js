@@ -7,9 +7,9 @@ import { getKeyByValue } from '../../utils/get-key';
 import { countryIso } from '../filter-articles-container/country-filter';
 
 const CenterContainer = () => {
-	const { articles } = useArticles('pl', 1, 10);
 	const [country] = useLocalStorage('country', 'pl');
-	const [page] = useLocalStorage('page', 10);
+	const [pageSize] = useLocalStorage('pageSize', 10);
+	const { articles } = useArticles(1);
 
 	const articlesArr = articles?.articles;
 
@@ -36,7 +36,7 @@ const CenterContainer = () => {
 		<main>
 			<div className="text-box">
 				<h2>
-					Wyświetlono {page} najnowszych wiadomości dla kraju:{' '}
+					Wyświetlono {pageSize} najnowszych wiadomości dla kraju:{' '}
 					{getKeyByValue(countryIso, country)}
 				</h2>
 			</div>
